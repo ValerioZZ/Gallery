@@ -7,4 +7,12 @@
 	height: 100vh;
 	background-color: var(--bgBlack);
 	color: var(--white);
+
+	&__likes {
+		margin-top: 20px;
+
+		span {
+			color: var(--red);
+		}
+	}
 }

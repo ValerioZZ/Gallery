@@ -12,6 +12,7 @@ class Dialog extends React.Component {
 
   render () {
     const { preview, selectedGallery, selectedLikeStatus, setPreviewGallery, setLikeGallery } = this.props
+    
     return (
       <div className={classNames("dialog", {preview})}>
         <img src={selectedGallery.url} />

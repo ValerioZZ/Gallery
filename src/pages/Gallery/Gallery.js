@@ -13,21 +13,24 @@ class Gallery extends React.Component {
   }
 
   render() {
+    const { likesGallery } = this.props;
+
     return (
       <div className="gallery">
         <h1>Gallery Images</h1>
         <GallerySlider />
+        <div className="gallery__likes">Favorite Images: <span>{Object.keys(likesGallery).length}</span></div>
       </div>
     );
   }
 }
 
 Gallery.propTypes = {
-  getGallery: PropTypes.func.isRequired,
+  likesGallery: PropTypes.object.isRequired,
 }
 
 const selectors = createStructuredSelector({
-  gallery: gallerySelectors.gallerySelector,
+  likesGallery: gallerySelectors.likesGallerySelector,
 });
 
 const actions = {

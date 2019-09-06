@@ -57,16 +57,16 @@ export default handleActions(
 
     [GALLERY_LIKE]: (state, { payload }) => {
       let favoriteThumbnails = state.likesGallery;
-      console.log("checkingLikes", favoriteThumbnails[payload.id - 1], (typeof favoriteThumbnails[payload.id - 1] !== undefined))
+
       if (favoriteThumbnails[payload.id - 1] === true) {
         delete favoriteThumbnails[payload.id - 1];
       } else {
         favoriteThumbnails[payload.id - 1] = true;
       }
-      // console.log(thumbnails[payload.id])
+
       return {
         ...state,
-        likesGallery: favoriteThumbnails,
+        likesGallery: {...favoriteThumbnails},
         selectedLikeStatus: favoriteThumbnails[payload.id - 1] ? true : false
       };
     },

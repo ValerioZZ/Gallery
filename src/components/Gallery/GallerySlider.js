@@ -17,7 +17,6 @@ class GallerySlider extends React.Component {
 
   handlePagination = (page) => {
     this.setState({page});
-    console.log(page);
   }
   
   render() {
