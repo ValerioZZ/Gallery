@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -10,7 +11,7 @@ class Dialog extends React.Component {
   render () {
     const { preview, selectedGallery, setPreviewGallery } = this.props
     return (
-      <div className="dialog">
+      <div className={classNames("dialog", {preview})}>
         <img src={selectedGallery.url} />
         <div className="dialog__close-icon" onClick={() => setPreviewGallery(null)}/>
       </div>

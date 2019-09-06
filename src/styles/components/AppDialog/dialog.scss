@@ -10,6 +10,13 @@
   z-index: 10;
   overflow: hidden;
   background-color: rgba(76, 87, 79, .4);
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+
+  &.preview {
+    
+    visibility:visible;
+    opacity:1;
+  }
 
   &__close-icon::before {
     position: fixed;
