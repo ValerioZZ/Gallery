@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectors as gallerySelectors } from 'redux/modules/Gallery';
+import { actions as galleryActions, selectors as gallerySelectors } from 'redux/modules/Gallery';
 import { Pagination } from "components";
 
 class GallerySlider extends React.Component {
@@ -22,13 +22,17 @@ class GallerySlider extends React.Component {
   
   render() {
     const { page, rowsPerPage } = this.state;
-    const { gallery } = this.props;
+    const { gallery, setPreviewGallery } = this.props;
 
     return (
       <div className="gallerySlider">
         <div className="gallerySlider__slides">
           {gallery.slice((page - 1) * rowsPerPage, page * rowsPerPage).map((item, idx) => (
-            <div className="gallerySlider__slides__tile" key={`gallery-${idx}`}><img src={item.thumbnailUrl} /></div>
+            <div
+              className="gallerySlider__slides__tile"
+              onClick={() => setPreviewGallery({id: item.id})}
+              key={`gallery-${idx}`}><img src={item.thumbnailUrl}
+              /></div>
           ))}
         </div>
         <Pagination page={page} rowsPerPage={rowsPerPage} count={gallery.length} onChangePage={this.handlePagination} />
@@ -38,7 +42,8 @@ class GallerySlider extends React.Component {
 }
 
 GallerySlider.propTypes = {
-  gallery: PropTypes.array
+  gallery: PropTypes.array,
+  setPreviewGallery: PropTypes.func.isRequired,
 }
 
 const selectors = createStructuredSelector({
@@ -46,6 +51,7 @@ const selectors = createStructuredSelector({
 });
 
 const actions = {
+  setPreviewGallery: galleryActions.setPreviewStatus
 };
 
 export default connect(selectors, actions)(GallerySlider);

@@ -1,12 +1,14 @@
 import { handleActions } from 'redux-actions';
 
 import { requestPending, requestSuccess, requestFail } from '../../../redux/api/request';
-import { GALLERY_GET } from './types';
+import { GALLERY_GET, GALLERY_PREVIEW } from './types';
 
 const initialState = {
   data: null,
   status: null,
   loading: false,
+  preview: false,
+  selectedGallery: null,
   error: null,
   message: '',
 };
@@ -41,6 +43,14 @@ export default handleActions(
       loading: false,
       message: `${payload.status} - ${payload.statusText}`,
     }),
+
+    [GALLERY_PREVIEW]: (state, { payload }) => {
+      return {
+        ...state,
+        preview: payload ? true : false,
+        selectedGallery: payload ? state.data[payload.id] : null,
+      };
+    },
   },
   initialState
 );

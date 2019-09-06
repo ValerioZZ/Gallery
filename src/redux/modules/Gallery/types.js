@@ -1,1 +1,3 @@
 export const GALLERY_GET = 'GALLERY_GET';
+
+export const GALLERY_PREVIEW = 'GALLERY_PREVIEW';
