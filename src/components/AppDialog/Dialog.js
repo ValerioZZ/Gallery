@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { actions as galleryActions, selectors as gallerySelectors } from 'redux/modules/Gallery';
+import likeIcon from 'images/like.png';
+import dislikeIcon from 'images/dislike.png';
 
 class Dialog extends React.Component {
 
@@ -14,6 +16,7 @@ class Dialog extends React.Component {
       <div className={classNames("dialog", {preview})}>
         <img src={selectedGallery.url} />
         <div className="dialog__close-icon" onClick={() => setPreviewGallery(null)}/>
+        <div className="dialog__favorite"><img src={dislikeIcon} /></div>
       </div>
     )
   }

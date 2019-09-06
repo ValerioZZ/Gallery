@@ -28,4 +28,16 @@
     font-weight: 300;
     font-size: 50px;
   }
+
+  &__favorite {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 11;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
