@@ -48,7 +48,7 @@ export default handleActions(
       return {
         ...state,
         preview: payload ? true : false,
-        selectedGallery: payload ? state.data[payload.id] : null,
+        selectedGallery: payload ? state.data[payload.id - 1] : null,
       };
     },
   },
