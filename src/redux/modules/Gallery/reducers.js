@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 import { requestPending, requestSuccess, requestFail } from '../../../redux/api/request';
-import { GALLERY_GET, GALLERY_PREVIEW } from './types';
+import { GALLERY_GET, GALLERY_PREVIEW, GALLERY_LIKE } from './types';
 
 const initialState = {
   data: null,
@@ -9,6 +9,7 @@ const initialState = {
   loading: false,
   preview: false,
   selectedGallery: null,
+  likesGallery: {},
   error: null,
   message: '',
 };
@@ -49,6 +50,19 @@ export default handleActions(
         ...state,
         preview: payload ? true : false,
         selectedGallery: payload ? state.data[payload.id - 1] : null,
+      };
+    },
+
+    [GALLERY_LIKE]: (state, { payload }) => {
+      let thumbnails = state.likesGallery;
+      if (thumbnails[payload.id]) {
+        delete thumbnails[payload.id];
+      } else {
+        thumbnails[payload.id] = true;
+      }
+      return {
+        ...state,
+        likesGallery: thumbnails,
       };
     },
   },
