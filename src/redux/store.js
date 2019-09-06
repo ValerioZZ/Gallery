@@ -1,5 +1,4 @@
 import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
@@ -14,16 +13,12 @@ export const history = createBrowserHistory();
 const initialState = {};
 const enhancers = [];
 
-const logger = createLogger();
-
 const sagaMiddleware = createSagaMiddleware();
 
 const middleware = [thunk, sagaMiddleware, routerMiddleware(history)];
 
 if (process.env.NODE_ENV === 'development') {
   const { devToolsExtension } = window;
-
-  middleware.push(logger);
 
   if (typeof devToolsExtension === 'function') {
     enhancers.push(devToolsExtension());
