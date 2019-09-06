@@ -8,18 +8,18 @@ import Routes from 'routes';
 
 
 const Root = ({ store, history }) => (
-    <Provider store={store}>
-        <App>
-            <ConnectedRouter history={history}>
-                <Routes />
-            </ConnectedRouter>
-        </App>
-    </Provider>
+	<Provider store={store}>
+		<App>
+			<ConnectedRouter history={history}>
+				<Routes />
+			</ConnectedRouter>
+		</App>
+	</Provider>
 )
 
 Root.propTypes = {
-    store: PropTypes.shape().isRequired,
-    history: PropTypes.shape().isRequired,
+	store: PropTypes.shape().isRequired,
+	history: PropTypes.shape().isRequired,
 }
 
 export default Root;
