@@ -32,7 +32,6 @@ export default handleActions(
         status: requestSuccess(GALLERY_GET),
         data: payload,
         loading: false,
-        id: null,
         error: null,
       };
     },
@@ -43,7 +42,7 @@ export default handleActions(
       status: requestFail(GALLERY_GET),
       error: true,
       loading: false,
-      message: `${payload.status} - ${payload.statusText}`,
+      message: '',
     }),
 
     [GALLERY_PREVIEW]: (state, { payload }) => {
