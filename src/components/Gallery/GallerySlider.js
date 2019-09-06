@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { actions as galleryActions, selectors as gallerySelectors } from 'redux/modules/Gallery';
-import { Pagination } from "components";
+import { Pagination, Dialog } from "components";
 
 class GallerySlider extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class GallerySlider extends React.Component {
   
   render() {
     const { page, rowsPerPage } = this.state;
-    const { gallery, setPreviewGallery } = this.props;
+    const { gallery, preview, setPreviewGallery } = this.props;
 
     return (
       <div className="gallerySlider">
@@ -36,6 +36,7 @@ class GallerySlider extends React.Component {
           ))}
         </div>
         <Pagination page={page} rowsPerPage={rowsPerPage} count={gallery.length} onChangePage={this.handlePagination} />
+        {preview && (<Dialog />)}
       </div>
     );
   }
@@ -43,11 +44,13 @@ class GallerySlider extends React.Component {
 
 GallerySlider.propTypes = {
   gallery: PropTypes.array,
+  preview: PropTypes.bool.isRequired,
   setPreviewGallery: PropTypes.func.isRequired,
 }
 
 const selectors = createStructuredSelector({
   gallery: gallerySelectors.gallerySelector,
+  preview: gallerySelectors.previewSelector,
 });
 
 const actions = {
