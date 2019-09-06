@@ -47,7 +47,7 @@ export default ({
       yield put({
         type: requestPending(type),
       });
-
+      console.log("callingAPI")
       const res = yield call(
         fetch,
         `${baseURL}${typeof path === 'function' ? path(action) : path}`,

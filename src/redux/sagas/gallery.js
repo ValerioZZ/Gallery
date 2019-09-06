@@ -5,13 +5,12 @@ import apiCall from '../api/apiCall';
 import { GALLERY_GET } from '../modules/Gallery/types';
 
 const { REACT_APP_GALLERY_DOMAIN } = process.env;
-
+console.log('chekcingURL', REACT_APP_GALLERY_DOMAIN);
 const doGetGallery = apiCall({
   type: GALLERY_GET,
-  method: 'POST',
+  method: 'GET',
   baseURL: `${REACT_APP_GALLERY_DOMAIN}`,
-  path: '/photos',
-  body: {}
+  path: '/photos'
 });
 
 export default function* rootSaga() {
