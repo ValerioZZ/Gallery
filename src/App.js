@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 // import { Label, Icon } from 'semantic-ui-react'
 
 // import './favicon.ico'
-
+import 'styles/index.scss'
 
 class App extends React.Component {
   static propTypes = {
