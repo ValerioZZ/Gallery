@@ -15,11 +15,11 @@ class Dialog extends React.Component {
     
     return (
       <div className={classNames("dialog", {preview})}>
-        <img src={selectedGallery.url} />
+        <img src={selectedGallery.url} alt="thumb"/>
         <div className="dialog__close-icon" onClick={() => setPreviewGallery(null)}/>
         <div className="dialog__favorite" onClick={() => setLikeGallery({id: selectedGallery.id})}>
-          {!selectedLikeStatus && (<img src={dislikeIcon}/>)}
-          {selectedLikeStatus && (<img src={likeIcon}/>)}
+          {!selectedLikeStatus && (<img src={dislikeIcon} alt="dislike-icon" />)}
+          {selectedLikeStatus && (<img src={likeIcon} alt="like-icon" />)}
         </div>
       </div>
     )

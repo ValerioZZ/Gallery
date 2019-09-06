@@ -30,8 +30,9 @@ class GallerySlider extends React.Component {
             <div
               className="gallerySlider__slides__tile"
               onClick={() => setPreviewGallery({id: item.id})}
-              key={`gallery-${idx}`}><img src={item.thumbnailUrl}
-              /></div>
+              key={`gallery-${idx}`}>
+                <img src={item.thumbnailUrl} alt="gllery" />
+              </div>
           ))}
         </div>
         <Pagination page={page} rowsPerPage={rowsPerPage} count={gallery.length} onChangePage={this.handlePagination} />
