@@ -12,7 +12,7 @@ class Dialog extends React.Component {
     return (
       <div className="dialog">
         <img src={selectedGallery.url} />
-        <div className="dialog__close-icon" />
+        <div className="dialog__close-icon" onClick={() => setPreviewGallery(null)}/>
       </div>
     )
   }

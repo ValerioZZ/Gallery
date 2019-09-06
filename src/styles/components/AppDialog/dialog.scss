@@ -7,7 +7,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 10;
   overflow: hidden;
   background-color: rgba(76, 87, 79, .4);
+
+  &__close-icon::before {
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    z-index: 11;
+    content: 'x';
+    color: var(--white);
+    font-weight: 300;
+    font-size: 50px;
+  }
 }
