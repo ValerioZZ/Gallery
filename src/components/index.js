@@ -1,7 +1,10 @@
+// Core Components
+import Pagination from './_core/Pagination';
+
+// components
 import GallerySlider from './Gallery/GallerySlider';
-import Pagination from './Pagination';
 
 export {
-  GallerySlider,
-  Pagination
+  Pagination,
+  GallerySlider
 }

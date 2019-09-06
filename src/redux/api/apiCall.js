@@ -5,16 +5,9 @@ import { get } from 'lodash';
 import { requestFail, requestPending, requestSuccess } from './request';
 
 const defaultHeaders = () => {
-  // const token = localStorage.getItem('token');
-
   const headers = {
     'Content-Type': 'application/json',
   };
-
-  // if (token) {
-  //   headers.Authorization = `Token ${token}`;
-  // }
-
   return headers;
 };
 
