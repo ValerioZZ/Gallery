@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+// import { connect } from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import { Label, Icon } from 'semantic-ui-react'
+
+// import './favicon.ico'
+
+
+class App extends React.Component {
+  static propTypes = {
+    children: PropTypes.shape().isRequired
+  }
+
+  static defaultProps = {
+  }
+
+  componentDidMount() {
+  }
+
+  render() {
+    return (
+      <Fragment>
+        {this.props.children}
+      </Fragment>
+    )
+  }
 }
 
-export default App;
+export default App

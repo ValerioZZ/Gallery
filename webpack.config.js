@@ -10,10 +10,7 @@ module.exports = {
           "css-loader",
           "postcss-loader",
           {
-              loader: "sass-loader",
-              options: {
-                  includePaths: [path.resolve(__dirname, "./src")]
-              }
+              loader: "sass-loader"
           }
         ]
       },
