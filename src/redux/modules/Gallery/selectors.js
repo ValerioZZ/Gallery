@@ -8,3 +8,4 @@ export const gallerySelector = fp.compose(
 export const loadingSelector = fp.compose(fp.get('Gallery.loading'));
 export const previewSelector = fp.compose(fp.get('Gallery.preview'));
 export const selectedGallerySelector = fp.compose(fp.get('Gallery.selectedGallery'));
+export const selectedLikeStatusSelector = fp.compose(fp.get('Gallery.selectedLikeStatus'));

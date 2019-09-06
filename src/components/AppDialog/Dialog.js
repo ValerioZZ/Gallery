@@ -11,12 +11,15 @@ import dislikeIcon from 'images/dislike.png';
 class Dialog extends React.Component {
 
   render () {
-    const { preview, selectedGallery, setPreviewGallery, setLikeGallery } = this.props
+    const { preview, selectedGallery, selectedLikeStatus, setPreviewGallery, setLikeGallery } = this.props
     return (
       <div className={classNames("dialog", {preview})}>
         <img src={selectedGallery.url} />
         <div className="dialog__close-icon" onClick={() => setPreviewGallery(null)}/>
-        <div className="dialog__favorite" onClick={() => setLikeGallery({id: selectedGallery.id})}><img src={dislikeIcon}/></div>
+        <div className="dialog__favorite" onClick={() => setLikeGallery({id: selectedGallery.id})}>
+          {!selectedLikeStatus && (<img src={dislikeIcon}/>)}
+          {selectedLikeStatus && (<img src={likeIcon}/>)}
+        </div>
       </div>
     )
   }
@@ -27,11 +30,13 @@ Dialog.propTypes = {
   setLikeGallery: PropTypes.func.isRequired,
   selectedGallery: PropTypes.object,
   preview: PropTypes.bool.isRequired,
+  selectedLikeStatus: PropTypes.bool.isRequired,
 }
 
 const selectors = createStructuredSelector({
   preview: gallerySelectors.previewSelector,
   selectedGallery: gallerySelectors.selectedGallerySelector,
+  selectedLikeStatus: gallerySelectors.selectedLikeStatusSelector,
 });
 
 const actions = {
